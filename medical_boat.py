@@ -77,9 +77,11 @@ def dashoard():
             st.write("Here is the some statistic about the insurance data ")
             st.dataframe(Insurance_Data.head(10))
             st.write("----------------------------------------------------------------------")
+            
+            st.subheader("Statistical Summary")
+            
             st.dataframe(Insurance_Data.describe())
 
-            st.subheader("Statistical Summary")
             st.write("----------------------------------------------------------------------")  
             st.write("Categorical Features  : " + ", ".join(categorical_features))
             st.write("Numeric Features: " + ", ".join(Numeric_features))        

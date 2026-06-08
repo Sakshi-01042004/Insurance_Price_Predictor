@@ -47,9 +47,30 @@ def dashoard():
         st.write("Explore the insights about medical insurance costs.")
     
 
-        tabs = st.tabs(["Statistical Overview", "Age Distribution","Gender Distribution","BMI Distribution","Smokers Distribution","Children Distribution","Regions Distribution"])
+        tabs = st.tabs(["Objective of the Project","Statistical Overview", "Age Distribution","Gender Distribution","BMI Distribution","Smokers Distribution","Children Distribution","Regions Distribution",])
 
         with tabs[0]:
+            st.header("Objective of the Project")
+            st.write("----------------------------------------------------------------------")
+            st.markdown('''
+                        - To predict insurance premium/medical charges using Machine Learning algorithms.
+                        - To analyze how factors like age, BMI, smoking habits, gender, and number of children affect insurance costs.
+                        - To provide a fast and user-friendly insurance cost estimation system.
+                        - To reduce manual calculation and improve prediction accuracy.
+                        ''')
+            
+            st.write("----------------------------------------------------------------------")
+            st.header("Problem Statement")
+            st.write("----------------------------------------------------------------------")
+
+            st.markdown('''
+                        - Insurance companies calculate premiums using multiple health and demographic factors.
+                        - Manual estimation is time-consuming and may contain human errors.
+                        - Users often cannot estimate future medical expenses accurately.
+                        - This project automates the prediction process using data-driven analysis.
+                        ''')
+
+        with tabs[1]:
             st.header("Insurance Data Statistical Overview")
             st.write("----------------------------------------------------------------------")
             st.subheader("Data Overview")
@@ -63,7 +84,7 @@ def dashoard():
             st.write("Categorical Features  : " + ", ".join(categorical_features))
             st.write("Numeric Features: " + ", ".join(Numeric_features))        
 
-        with tabs[1]:
+        with tabs[2]:
             st.header("Age distribution of Insurance Holders")
             plt.figure(figsize=(5,3))
             sns.histplot(Insurance_Data['age'], bins=30, kde=True, color='green')
@@ -82,7 +103,7 @@ def dashoard():
                         - Overall, the distribution highlights the importance of targeting younger demographics for insurance products.
                         ''')
         
-        with tabs[2]:
+        with tabs[3]:
             st.header("Gender Distribution of Insurance Holders")
 
             counts = Insurance_Data['sex'].value_counts()
@@ -109,7 +130,7 @@ def dashoard():
 
 
 
-        with tabs[3]:
+        with tabs[4]:
             st.header("BMI distribution of Insurance Holders")
             plt.figure(figsize=(5,3))
             sns.histplot(Insurance_Data['bmi'], bins=30, kde=True, color='Salmon')
@@ -126,7 +147,7 @@ def dashoard():
                         - The distribution suggests that while many holders fall within the normal weight range, there is also a substantial portion that is overweight or obese.
                         - This information can be crucial for insurance companies in assessing risk and determining premiums based on health factors associated with BMI.
                         ''')
-        with tabs[4]:
+        with tabs[5]:
             st.header("Smoker vs Non-Smoker Insurance Holders")
             plt.figure(figsize=(5,3))
             sns.countplot(x='smoker', data=Insurance_Data, palette='Set2')
@@ -145,7 +166,7 @@ def dashoard():
                         - Insurance companies may use this information to tailor their policies and premiums based on smoking status.
                         ''')
             
-        with tabs[5]:
+        with tabs[6]:
             st.header("Children Distribution among Insurance Holders")
             plt.figure(figsize=(5,3))
             sns.countplot(x='children', data=Insurance_Data, palette='Set3')
@@ -163,7 +184,7 @@ def dashoard():
                         - The distribution may reflect financial considerations, as individuals with more children may face higher expenses and thus be less inclined to maintain insurance.
                         ''')
 
-        with tabs[6]:
+        with tabs[7]:
             st.header("Regions Distribution of Insurance Holders")
             plt.figure(figsize=(5,3))
             sns.countplot(x='region', data=Insurance_Data, palette='Set1')
